@@ -21,6 +21,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototypes = Prototype.find(params[:id])
+    #@prototypes = current_user.prototypes
     @comment = Comment.new
     @comments = @prototypes.comments.includes(:user)
   end
@@ -53,7 +54,7 @@ class PrototypesController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == Prototype.find(params[:id])
+    unless user_signed_in?
       redirect_to action: :index
     end
   end

@@ -5,8 +5,8 @@ def create
   if @comment.save
     redirect_to prototype_path(@comment.prototype) # 今回の実装には関係ありませんが、このようにPrefixでパスを指定することが望ましいです。
   else
-    @prototype = @comment.prototype
-    @comment = @prototype.comment
+    @prototypes = @comment.prototype
+    @comments = @prototypes.comments
     render "prototypes/show", status: :unprocessable_entity
     # views/tweets/show.html.erbのファイルを参照しています。
   end
