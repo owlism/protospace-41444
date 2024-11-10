@@ -41,15 +41,7 @@
       </div>
     </header>
 
-    <div>
-      <% if user_signed_in? %>
-       <span class="name">
-        こんにちは<a href="/users/<%= current_user.id %>">
-        <%= current_user.name %>さん
-      </a>
-    </span>
-      </div>
-      <% end %>
+    
 
     <%= yield %>
     <footer class="footer">
